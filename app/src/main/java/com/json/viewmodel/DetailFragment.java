@@ -1,6 +1,7 @@
 package com.json.viewmodel;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ public class DetailFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         SharedViewModel model = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
         model.getSelected().observe(getViewLifecycleOwner(), item -> {
+            Log.d(TAG, "[onViewCreated] getName = " + item.getName());
             mDetailInfoView.setText(item.getName());
         });
     }

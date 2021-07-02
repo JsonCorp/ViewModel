@@ -1,6 +1,7 @@
 package com.json.viewmodel;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,7 @@ public class MasterFragment extends Fragment {
         });
 
         model.getSelected().observe(getViewLifecycleOwner(), item -> {
+            Log.d(TAG, "[onViewCreated] getName = " + item.getName());
             mInfoTextView.setText(item.getName());
         });
     }
